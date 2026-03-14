@@ -56,7 +56,8 @@ export const auth = betterAuth({
 
   trustedOrigins: [
     "http://localhost:3000",
-    "https://finveda-neon.vercel.app"
+    "https://finveda-neon.vercel.app",
+    "https://*.vercel.app",
   ],
    cookies: {
     sessionToken: {
