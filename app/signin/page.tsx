@@ -71,7 +71,7 @@ export default function SignInPage() {
 
     return (
         <div className="flex items-center justify-center min-h-screen px-4 py-12 bg-gradient-to-b from-sky-200 via-sky-100 to-white">
-            <Card className="w-full max-w-sm p-6 rounded-2xl bg-white/70 backdrop-blur-xl shadow-xl border border-white/40">
+            <Card className="w-full max-w-sm p-8 rounded-2xl bg-white/80 backdrop-blur-xl shadow-2xl border border-white/50">
                 <CardHeader className="space-y-2 text-center">
                     
                     <CardTitle className="text-3xl font-semibold tracking-tight">FinVeda</CardTitle>
@@ -112,8 +112,8 @@ export default function SignInPage() {
                                 required 
                             />
                         </div>
-                        <Button type="submit" className="w-full h-11 rounded-lg bg-gradient-to-r from-gray-900 to-gray-700 text-white hover:opacity-90 transition" disabled={loading}>
-                            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                        <Button type="submit" className="w-full h-11 rounded-lg bg-gradient-to-r from-gray-900 to-gray-700 text-white hover:opacity-90 transition cursor-pointer" disabled={loading}>
+                            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin " /> : null}
                             Sign In
                         </Button>
                     </form>
@@ -129,28 +129,36 @@ export default function SignInPage() {
                         </div>
                     </div> 
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <Button 
-                            className="h-10 rounded-lg bg-white hover:bg-gray-50 border border-gray-200"
-                            variant="outline" 
+                    <div className="grid grid-cols-2 gap-3">
+                        <Button
+                            variant="outline"
+                            className="h-10 rounded-lg border-gray-200 hover:bg-gray-50 flex items-center justify-center cursor-pointer"
                             onClick={() => handleSocialSignIn("google")}
                             disabled={loading}
-                        >
-                            <Chrome className="mr-2 h-4 w-4" />
+                            >
+                            <img
+                                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                                alt="Google"
+                                className="mr-2 h-5 w-5"
+                            />
                             Google
                         </Button>
-                        <Button 
-                            className="h-10 rounded-lg bg-white hover:bg-gray-50 border border-gray-200"
-                            variant="outline" 
+                        <Button
+                            variant="outline"
+                            className="h-10 rounded-lg border-gray-200 hover:bg-gray-50 flex items-center justify-center cursor-pointer"
                             onClick={() => handleSocialSignIn("github")}
                             disabled={loading}
-                        >
-                            <Github className="mr-2 h-4 w-4" />
+                            >
+                            <img
+                                src="https://www.svgrepo.com/show/512317/github-142.svg"
+                                alt="Github"
+                                className="mr-2 h-5 w-5"
+                            />
                             Github
                         </Button>
                     </div>
                 </CardContent>
-                <CardFooter className="flex flex-wrap items-center justify-center gap-1 border-t py-4 text-sm text-gray-500">
+                <CardFooter className="flex items-center justify-center gap-2 py-4 text-sm text-gray-500">
                     <span className="text-muted-foreground">Don&apos;t have an account?</span>
                     <Link href="/signup" className="font-medium text-primary hover:underline">
                         Create an Account

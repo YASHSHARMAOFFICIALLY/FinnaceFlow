@@ -26,7 +26,7 @@ export default function Navbar() {
               <circle cx="7" cy="11" r="1.2" fill="#C9A84C"/>
             </svg>
           </div>
-          <span className="text-[15px] font-semibold tracking-[-0.02em] text-[#0F0F0F]">FinanceFlow</span>
+          <span className="text-[20px] font-semibold tracking-[-0.02em] text-[#0F0F0F]">Finveda</span>
         </a>
 
         {/* Center nav */}

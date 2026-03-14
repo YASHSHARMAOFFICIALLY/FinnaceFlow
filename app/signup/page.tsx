@@ -90,12 +90,12 @@ export default function SignUpPage() {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-muted/40 px-4">
-            <Card className="w-full max-w-md shadow-lg border-t-4 border-t-primary">
-                <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold text-center">Create an Account</CardTitle>
-                    <CardDescription className="text-center">
-                        Join Arogya Assam to manage your medical records and find healthcare
+        <div className="flex items-center justify-center min-h-screen px-4 py-12 bg-gradient-to-b from-sky-200 via-sky-100 to-white">
+            <Card className="w-full max-w-sm p-8 rounded-2xl bg-white/80 backdrop-blur-xl shadow-2xl border border-white/50">
+                <CardHeader className="space-y-2 text-center">
+                    <CardTitle className="text-2xl font-semibold tracking-tight">Create an Account</CardTitle>
+                    <CardDescription className="text-sm text-gray-500 max-w-xs mx-auto">
+                        Join Finveda to manage your medical records and find healthcare
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -108,7 +108,7 @@ export default function SignUpPage() {
                                     id="name" 
                                     type="text" 
                                     placeholder="John Doe" 
-                                    className="pl-10"
+                                    className="pl-10 h-11 rounded-lg bg-gray-100 border-none focus-visible:ring-2 focus-visible:ring-blue-400"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     required 
@@ -123,7 +123,7 @@ export default function SignUpPage() {
                                     id="email" 
                                     type="email" 
                                     placeholder="name@example.com" 
-                                    className="pl-10"
+                                    className="pl-10 h-11 rounded-lg bg-gray-100 border-none focus-visible:ring-2 focus-visible:ring-blue-400"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required 
@@ -138,7 +138,7 @@ export default function SignUpPage() {
                                     id="password" 
                                     type="password" 
                                     placeholder="••••••••"
-                                    className="pl-10"
+                                    className="pl-10 h-11 rounded-lg bg-gray-100 border-none focus-visible:ring-2 focus-visible:ring-blue-400"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required 
@@ -149,7 +149,7 @@ export default function SignUpPage() {
                                 Must be at least 8 characters long
                             </p>
                         </div>
-                        <Button type="submit" className="w-full" disabled={loading}>
+                        <Button type="submit" className="w-full h-11 rounded-lg bg-gradient-to-r from-gray-900 to-gray-700 text-white hover:opacity-90 transition cursor-pointer" disabled={loading}>
                             {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                             Create Account
                         </Button>
@@ -160,32 +160,40 @@ export default function SignUpPage() {
                             <span className="w-full border-t" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-background px-2 text-muted-foreground">
+                            <span className="bg-white px-4 text-xs uppercase tracking-wider text-gray-400">
                                 Or sign up with
                             </span>
                         </div>
                     </div> 
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <Button 
-                            variant="outline" 
+                    <div className="grid grid-cols-2 gap-3">
+                        <Button
+                            variant="outline"
+                            className="h-10 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center gap-2 cursor-pointer"
                             onClick={() => handleSocialSignUp("google")}
                             disabled={loading}
-                        >
-                            <Chrome className="mr-2 h-4 w-4" />
+                            >
+                            <img
+                            src="https://www.svgrepo.com/show/475656/google-color.svg"
+                            className="h-5 w-5"
+                            />
                             Google
                         </Button>
-                        <Button 
-                            variant="outline" 
+                        <Button
+                            variant="outline"
+                            className="h-10 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center gap-2 cursor-pointer"
                             onClick={() => handleSocialSignUp("github")}
                             disabled={loading}
-                        >
-                            <Github className="mr-2 h-4 w-4" />
+                            >
+                            <img
+                            src="https://www.svgrepo.com/show/512317/github-142.svg"
+                            className="h-5 w-5"
+                            />
                             Github
                         </Button>
                     </div>
                 </CardContent>
-                <CardFooter className="flex flex-wrap items-center justify-center gap-1 border-t bg-muted/50 py-4 text-sm">
+                <CardFooter className="flex items-center justify-center gap-2 pt-4 text-sm text-gray-500">
                     <span className="text-muted-foreground">Already have an account?</span>
                     <Link href="/signin" className="font-medium text-primary hover:underline">
                         Sign In
