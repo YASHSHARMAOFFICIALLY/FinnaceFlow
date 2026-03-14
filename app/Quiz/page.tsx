@@ -17,9 +17,9 @@ function SectionDivider() {
 }
 export default function LearnPage() {
   return (
-    <div className="bg-white min-h-screen font-sans antialiased">
+    <div className="bg-white min-h-screen font-sans antialiased" >
       <Navbar />
-      <main>
+      <main className="mt-40">
        <QuizPage/>
       <Newsletter />
       </main>

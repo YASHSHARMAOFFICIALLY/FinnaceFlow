@@ -1,6 +1,6 @@
 'use client'  
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Github, Chrome, Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,18 +12,21 @@ import Link from "next/link";
 
 export default function SignInPage() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const nextPath = searchParams.get("next");
+    const redirectTarget = nextPath?.startsWith("/") ? nextPath : "/dashboard";
     
     // Check if user is already logged in
     const { data: session, isPending } = authClient.useSession();
 
     useEffect(() => {
         if (session) {
-            router.push("/hospitals");
+            router.push(redirectTarget);
         }
-    }, [session, router]);
+    }, [session, router, redirectTarget]);
 
     const handleEmailSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -32,14 +35,14 @@ export default function SignInPage() {
             const { data, error } = await authClient.signIn.email({
                 email,
                 password,
-                callbackURL: "/dashboard"
+                callbackURL: redirectTarget
             });
 
             if (error) {
                 toast.error(error.message || "Failed to sign in");
             } else {
                 toast.success("Signed in successfully!");
-                router.push("/hospitals");
+                router.push(redirectTarget);
             }
         } catch (err) {
             toast.error("An unexpected error occurred");
@@ -53,7 +56,7 @@ export default function SignInPage() {
         try {
             await authClient.signIn.social({
                 provider,
-                callbackURL: "/hospitals"
+                callbackURL: redirectTarget
             });
         } catch (err) {
             toast.error(`Failed to sign in with ${provider}`);

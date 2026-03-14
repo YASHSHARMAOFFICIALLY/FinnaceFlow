@@ -1,5 +1,5 @@
 import FeedbackSection from "./FeedbackSection";
-import { CATEGORY_COLORS } from "../data/questions";
+import { CATEGORY_COLORS } from "@/data/question"
 
 const LETTERS = ["A", "B", "C", "D"];
 
