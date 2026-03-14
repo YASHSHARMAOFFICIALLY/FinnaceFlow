@@ -1,7 +1,5 @@
 'use client'
 import { signupSchema } from "@/lib/validators";
-// import { generateVerificationToken } from "@/lib/token";
-// import { sendVerificationEmail } from "@/lib/email";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -33,38 +31,7 @@ export default function SignUpPage() {
         }
     }, [session, router]);
 
-    // const handleSignUp = async (e: React.FormEvent) => {
-    //     e.preventDefault();
-    //     const result = signupSchema.safeParse({name,email,password})
-    //     if(!result.success){
-    //         return toast.error(result.error.issues[0].message)
-    //     }
-    //     setLoading(true);
-    //     console.log("Attempting signup for:", email);
-
-    //     try {
-    //         const { data, error } = await authClient.signUp.email({
-    //             email,
-    //             password,
-    //             name,
-    //             callbackURL: "/dashboard"
-    //         });
-
-    //         if (error) {
-    //             console.error("Signup error details:", error);
-    //             toast.error(error.message || "Failed to create account");
-    //         } else {
-    //             console.log("Signup successful:", data);
-    //             toast.success("Account created successfully!");
-    //             router.push("/dashboard");
-    //         }
-    //     } catch (err) {
-    //         console.error("Unexpected signup error:", err);
-    //         toast.error("An unexpected error occurred during signup");
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
+  
     const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);

@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/landing/navbar";
 import Footer from "@/components/landing/footer"
 import Newsletter from "@/components/learn/Newsletter";

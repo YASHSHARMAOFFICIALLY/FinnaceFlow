@@ -45,14 +45,14 @@ export default async function DashboardPage() {
           {[
             { label: "Dashboard", icon: "◉", active: true },
             { label: "Portfolio", icon: "📈" },
-            { label: "Goals", icon: "🎯" },
-            { label: "Tools", icon: "🔧" },
-            { label: "Learn", icon: "📚" },
-            { label: "Quiz", icon: "🧠" },
+            { label: "Goals", icon: "🎯", href:"/goals" },
+            { label: "Tools", icon: "🔧" ,href:"/tools" },
+            { label: "Learn", icon: "📚" ,href:"/learn" },
+            { label: "Quiz", icon: "🧠",href:"/Quiz" },
           ].map((item) => (
             <a
               key={item.label}
-              href="#"
+              href={item.href}
               className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13.5px] font-medium mb-0.5 transition-all duration-150 ${
                 item.active
                   ? "bg-[#0F0F0F] text-white"
