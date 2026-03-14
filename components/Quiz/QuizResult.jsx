@@ -244,4 +244,3 @@ export default function QuizResult({ score, total, onRetry }) {
     </div>
   );
 }
-//yash
