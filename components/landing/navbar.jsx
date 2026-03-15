@@ -27,15 +27,15 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <div className="w-7 h-7 rounded-lg bg-[#0F0F0F] flex items-center justify-center">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 10L7 4L12 10" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               <circle cx="7" cy="11" r="1.2" fill="#C9A84C"/>
             </svg>
           </div>
-          <span className="text-[15px] font-semibold tracking-[-0.02em] text-[#0F0F0F]">FinanceFlow</span>
-        </Link>
+          <span className="text-[15px] font-semibold tracking-[-0.02em] text-[#0F0F0F]">Finveda</span>
+        </a>
 
         {/* Center nav */}
         <div className="hidden md:flex items-center gap-8">

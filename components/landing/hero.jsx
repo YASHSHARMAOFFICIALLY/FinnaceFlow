@@ -34,7 +34,7 @@ const bentoCards = [
         <circle cx="9" cy="9" r="1.5" fill="#0F0F0F"/>
       </svg>
     ),
-    title: "Health Score",
+    title: "Financial Score",
     desc: "Your financial strength",
   },
   {
