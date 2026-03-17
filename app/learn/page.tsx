@@ -16,25 +16,6 @@ function SectionDivider() {
   );
 }
 
-// export default function LearnPage() {
-//   return (
-//     <div className="bg-white min-h-screen">
-     
-//       <SectionDivider />
-//       <BlogSection />
-//       <SectionDivider />
-//       <VideoSection />
-//       <SectionDivider />
-//       <BooksSection />
-//       <SectionDivider />
-//       <FinanceConcepts />
-//       <SectionDivider />
-//       <LearningPath />
-//       <SectionDivider />
-//       <Newsletter />
-//     </div>
-//   );
-// }
 export default function LearnPage() {
   return (
     <div className="bg-white min-h-screen font-sans antialiased">
