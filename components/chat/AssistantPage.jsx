@@ -1,8 +1,9 @@
+'use client'
 import { useState, useCallback } from "react";
 import ChatLayout from "./chatlayout";
 import ChatInput from "./chatinput";
-import AssistantSidebar from "./AssistantSidebar";
-import { generateResponse } from "../data/responses";
+import AssistantSidebar from "./AssiantSideBar";
+import { generateResponse } from "@/data/responses";
 
 // Formatting helper for time
 function getTime() {

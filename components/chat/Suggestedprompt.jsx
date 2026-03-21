@@ -1,5 +1,5 @@
 'use client'
-import { SUGGESTED_PROMPTS } from "../data/responses";
+import { SUGGESTED_PROMPTS } from "@/data/responses";
 
 const CATEGORY_STYLES = {
   Investing: { bg: "#F0F5FF", text: "#4A6FA5", border: "#D0E0FF" },

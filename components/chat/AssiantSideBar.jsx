@@ -1,5 +1,5 @@
 'use client'
-import { RECENT_CONVERSATIONS } from "../data/responses";
+import { RECENT_CONVERSATIONS } from "@/data/responses"
 
 const QUICK_TOOLS = [
   { icon: "📈", label: "SIP Calculator", href: "#" },

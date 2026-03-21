@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useRef } from "react";
 import ChatMessage, { TypingIndicator } from  "./Chatmessage"
-import AssistantHero from "./AssistantHero";
-import SuggestedPrompts from "./SuggestedPrompts";
+import AssistantHero from "./Assisanthero";
+import SuggestedPrompts from "./Suggestedprompt";
 
 export default function ChatLayout({ messages, isTyping, isStreaming, streamingId, onSuggestSelect, onStreamDone }) {
   const bottomRef = useRef(null);
