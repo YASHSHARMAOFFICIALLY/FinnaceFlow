@@ -1,17 +1,26 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { getSessionCookie } from "better-auth/cookies";
+import { auth } from "@/lib/auth";
 
 const protectedRoutes = ["/tools", "/learn", "/Quiz", "/dashboard"];
 
 function isProtectedPath(pathname: string) {
-  return protectedRoutes.some((route) => pathname === route || pathname.startsWith(`${route}/`));
+  return protectedRoutes.some(
+    (route) => pathname === route || pathname.startsWith(`${route}/`)
+  );
 }
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
-  const sessionToken = getSessionCookie(request.headers);
 
-  if (!sessionToken && isProtectedPath(pathname)) {
+  if (!isProtectedPath(pathname)) {
+    return NextResponse.next();
+  }
+
+  const session = await auth.api.getSession({
+    headers: request.headers,
+  });
+
+  if (!session) {
     const signInUrl = new URL("/signin", request.url);
     signInUrl.searchParams.set("next", `${pathname}${search}`);
     return NextResponse.redirect(signInUrl);
@@ -19,7 +28,3 @@ export function proxy(request: NextRequest) {
 
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/tools/:path*", "/learn/:path*", "/Quiz/:path*", "/dashboard/:path*", "/signin", "/signup"],
-};
