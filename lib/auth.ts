@@ -23,7 +23,7 @@ export const auth = betterAuth({
   },
 
   advanced: {
-    useSecureCookies: true,
+    useSecureCookies: false,
     // Explicitly set cookie attributes for production
     defaultCookieAttributes: {
       secure: true,

@@ -8,7 +8,7 @@ const globalForPrisma = globalThis as unknown as {
   adapter: PrismaPg | undefined;
 };
 
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL_UNPOOLED ?? process.env.DATABASE_URL;
 
 if (!globalForPrisma.pool) {
   globalForPrisma.pool = new Pool({ 
