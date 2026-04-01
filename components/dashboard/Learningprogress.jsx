@@ -1,63 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
 
-const MODULES = [
-  {
-    id: 1,
-    title: "Budgeting Basics",
-    lessons: 8,
-    completed: 8,
-    icon: "📊",
-    color: "#3A7A5A",
-    bg: "#F0FBF4",
-    border: "#C0E8D0",
-    badge: "Complete",
-  },
-  {
-    id: 2,
-    title: "Mutual Funds & SIPs",
-    lessons: 12,
-    completed: 9,
-    icon: "📈",
-    color: "#4A6FA5",
-    bg: "#F0F5FF",
-    border: "#D0E0FF",
-    badge: "In Progress",
-    current: true,
-  },
-  {
-    id: 3,
-    title: "Stock Market Basics",
-    lessons: 10,
-    completed: 2,
-    icon: "💹",
-    color: "#7A4AA0",
-    bg: "#F8F0FF",
-    border: "#E0C8F8",
-    badge: "Started",
-  },
-  {
-    id: 4,
-    title: "Tax Planning",
-    lessons: 6,
-    completed: 0,
-    icon: "🧾",
-    color: "#888",
-    bg: "#F5F5F3",
-    border: "#E0E0E0",
-    badge: "Locked",
-    locked: true,
-  },
-];
-
-const RECENT_QUIZ = {
-  score: 8,
-  total: 10,
-  topic: "Mutual Funds",
-  date: "Today",
-  streak: 12,
-};
-
 function ModuleRow({ mod, delay }) {
   const pct = Math.round((mod.completed / mod.lessons) * 100);
   const [barWidth, setBarWidth] = useState(0);
@@ -120,9 +63,9 @@ function ModuleRow({ mod, delay }) {
   );
 }
 
-export default function LearningProgress() {
-  const totalLessons = MODULES.reduce((a, m) => a + m.lessons, 0);
-  const completedLessons = MODULES.reduce((a, m) => a + m.completed, 0);
+export default function LearningProgress({ learning }) {
+  const totalLessons = learning.modules.reduce((a, m) => a + m.lessons, 0);
+  const completedLessons = learning.modules.reduce((a, m) => a + m.completed, 0);
   const overallPct = Math.round((completedLessons / totalLessons) * 100);
 
   return (
@@ -163,7 +106,7 @@ export default function LearningProgress() {
         </div>
         <div className="text-center flex-shrink-0">
           <div className="text-[22px] font-bold text-[#0F0F0F] tracking-[-0.03em] leading-none">
-            🔥 {RECENT_QUIZ.streak}
+            🔥 {learning.streak}
           </div>
           <div className="text-[10px] text-[#888] mt-0.5">day streak</div>
         </div>
@@ -171,7 +114,7 @@ export default function LearningProgress() {
 
       {/* Modules */}
       <div className="flex flex-col gap-1">
-        {MODULES.map((mod, i) => (
+        {learning.modules.map((mod, i) => (
           <ModuleRow key={mod.id} mod={mod} delay={i * 70} />
         ))}
       </div>
@@ -185,15 +128,15 @@ export default function LearningProgress() {
             </div>
             <div>
               <div className="text-[12.5px] font-semibold text-[#0F0F0F] tracking-[-0.01em]">
-                Latest Quiz — {RECENT_QUIZ.topic}
+                Latest Quiz — {learning.latestQuiz.topic}
               </div>
-              <div className="text-[11.5px] text-[#888]">{RECENT_QUIZ.date}</div>
+              <div className="text-[11.5px] text-[#888]">{learning.latestQuiz.date}</div>
             </div>
           </div>
           <div className="text-right">
             <div className="text-[16px] font-bold text-[#0F0F0F] tracking-[-0.02em]">
-              {RECENT_QUIZ.score}
-              <span className="text-[12px] text-[#888] font-normal">/{RECENT_QUIZ.total}</span>
+              {learning.latestQuiz.score}
+              <span className="text-[12px] text-[#888] font-normal">/{learning.latestQuiz.total}</span>
             </div>
             <div className="text-[11px] text-[#3A7A5A] font-medium">Excellent</div>
           </div>

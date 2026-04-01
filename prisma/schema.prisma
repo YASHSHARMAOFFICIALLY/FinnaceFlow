@@ -8,15 +8,20 @@ datasource db {
 }
 
 model User {
-  id            String    @id
-  name          String
-  email         String    @unique
-  emailVerified Boolean   @default(false)
-  image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  accounts      Account[]
-  sessions      Session[]
+  id               String                  @id
+  name             String
+  email            String                  @unique
+  emailVerified    Boolean                 @default(false)
+  image            String?
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+  accounts         Account[]
+  sessions         Session[]
+  dashboardGoals   DashboardGoal[]
+  portfolioPoints  PortfolioSnapshot[]
+  learningModules  LearningModuleProgress[]
+  quizAttempts     QuizAttempt[]
+  activityFeed     DashboardActivity[]
 
   @@map("user")
 }
@@ -66,4 +71,91 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+model PortfolioSnapshot {
+  id         String   @id @default(cuid())
+  label      String
+  rangeKey   String
+  recordedAt DateTime
+  value      Int
+  invested   Int
+  createdAt  DateTime @default(now())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, rangeKey, recordedAt])
+}
+
+model DashboardGoal {
+  id            String    @id @default(cuid())
+  name          String
+  emoji         String
+  targetAmount  Int
+  currentAmount Int
+  monthlyNeeded Int      @default(0)
+  targetDate    DateTime?
+  color         String
+  achieved      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, achieved])
+}
+
+model LearningModuleProgress {
+  id               String    @id @default(cuid())
+  title            String
+  icon             String
+  lessons          Int
+  completedLessons Int
+  color            String
+  bgColor          String
+  borderColor      String
+  badge            String
+  isCurrent        Boolean   @default(false)
+  sortOrder        Int       @default(0)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  userId           String
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, sortOrder])
+}
+
+model QuizAttempt {
+  id          String   @id @default(cuid())
+  topic       String
+  score       Int
+  total       Int
+  xpEarned    Int
+  attemptedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, attemptedAt])
+}
+
+model DashboardActivity {
+  id          String   @id @default(cuid())
+  category    String
+  title       String
+  description String
+  icon        String
+  iconBg      String
+  iconBorder  String
+  amountLabel String
+  amountColor String
+  tag         String
+  tagBg       String
+  tagColor    String
+  occurredAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, occurredAt])
 }

@@ -27,9 +27,9 @@ function useScrollReveal(threshold = 0.15) {
 
 function QuizMockup() {
   return (
-    <div className="w-full bg-white border border-[#E8E8E8] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
-      <div className="text-[11px] font-medium text-[#888] uppercase tracking-wider mb-4">Daily Quiz · Day 12</div>
-      <div className="text-[15px] font-semibold text-[#0F0F0F] leading-snug mb-5 tracking-[-0.01em]">
+    <div className="w-full bg-white dark:bg-[#1a1a1a] border border-[#E8E8E8] dark:border-[#2a2a2a] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
+      <div className="text-[11px] font-medium text-[#888] dark:text-[#777] uppercase tracking-wider mb-4">Daily Quiz · Day 12</div>
+      <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white leading-snug mb-5 tracking-[-0.01em]">
         What is a key benefit of compound interest over simple interest?
       </div>
       <div className="space-y-2.5">
@@ -43,11 +43,11 @@ function QuizMockup() {
             key={opt.label}
             className={`flex items-center gap-3 p-3 rounded-xl border text-[13.5px] ${
               opt.correct
-                ? "border-[#C9A84C] bg-[#FBF7EC] text-[#8B7340] font-medium"
-                : "border-[#F0F0F0] text-[#555]"
+                ? "border-[#C9A84C] bg-[#FBF7EC] dark:bg-[#2a2518] text-[#8B7340] dark:text-[#C9A84C] font-medium"
+                : "border-[#F0F0F0] dark:border-[#2a2a2a] text-[#555] dark:text-[#aaa]"
             }`}
           >
-            <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-semibold ${opt.correct ? "bg-[#C9A84C] text-white" : "bg-[#F5F5F5] text-[#999]"}`}>
+            <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-semibold ${opt.correct ? "bg-[#C9A84C] text-white" : "bg-[#F5F5F5] dark:bg-[#2a2a2a] text-[#999] dark:text-[#777]"}`}>
               {opt.label}
             </span>
             {opt.text}
@@ -60,10 +60,10 @@ function QuizMockup() {
         ))}
       </div>
       <div className="mt-5 flex items-center gap-3">
-        <div className="flex-1 h-1.5 bg-[#F0F0F0] rounded-full">
-          <div className="h-full w-3/5 bg-[#0F0F0F] rounded-full" />
+        <div className="flex-1 h-1.5 bg-[#F0F0F0] dark:bg-[#2a2a2a] rounded-full">
+          <div className="h-full w-3/5 bg-[#0F0F0F] dark:bg-white rounded-full" />
         </div>
-        <span className="text-[12px] text-[#888]">3 of 5</span>
+        <span className="text-[12px] text-[#888] dark:text-[#777]">3 of 5</span>
       </div>
     </div>
   );
@@ -76,14 +76,14 @@ function SIPMockup() {
   const max = 210;
 
   return (
-    <div className="w-full bg-white border border-[#E8E8E8] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+    <div className="w-full bg-white dark:bg-[#1a1a1a] border border-[#E8E8E8] dark:border-[#2a2a2a] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
       <div className="flex items-center justify-between mb-1">
-        <div className="text-[13.5px] font-semibold text-[#0F0F0F] tracking-[-0.01em]">Portfolio Growth</div>
-        <div className="text-[12px] text-[#888]">12 months</div>
+        <div className="text-[13.5px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.01em]">Portfolio Growth</div>
+        <div className="text-[12px] text-[#888] dark:text-[#777]">12 months</div>
       </div>
       <div className="flex items-baseline gap-2 mb-5">
-        <span className="text-[26px] font-bold text-[#0F0F0F] tracking-[-0.04em]">₹2,01,000</span>
-        <span className="text-[12px] font-medium text-green-600 bg-green-50 px-2 py-0.5 rounded-full">+67.5%</span>
+        <span className="text-[26px] font-bold text-[#0F0F0F] dark:text-white tracking-[-0.04em]">₹2,01,000</span>
+        <span className="text-[12px] font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-0.5 rounded-full">+67.5%</span>
       </div>
       <div className="flex items-end gap-1 h-28">
         {months.map((m, i) => (
@@ -94,10 +94,9 @@ function SIPMockup() {
                 style={{ height: `${(invested[i] / max) * 96}px` }}
               />
               <div
-                className="w-full rounded-t-sm"
+                className="w-full rounded-t-sm bg-[#0F0F0F] dark:bg-white"
                 style={{
                   height: `${Math.max(0, ((returns[i] - invested[i]) / max) * 96)}px`,
-                  background: "#0F0F0F",
                 }}
               />
             </div>
@@ -106,12 +105,12 @@ function SIPMockup() {
       </div>
       <div className="flex gap-1 mt-2">
         {months.map((m,i) => (
-          <div key={`${m}-${i}`} className="flex-1 text-center text-[9px] text-[#bbb]">{m}</div>
+          <div key={`${m}-${i}`} className="flex-1 text-center text-[9px] text-[#bbb] dark:text-[#555]">{m}</div>
         ))}
       </div>
-      <div className="mt-4 flex gap-4 text-[12px] text-[#888]">
+      <div className="mt-4 flex gap-4 text-[12px] text-[#888] dark:text-[#777]">
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#C9A84C] opacity-50" />Invested</span>
-        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0F0F0F]" />Returns</span>
+        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0F0F0F] dark:bg-white" />Returns</span>
       </div>
     </div>
   );
@@ -126,21 +125,21 @@ function ScoreMockup() {
   ];
 
   return (
-    <div className="w-full bg-white border border-[#E8E8E8] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+    <div className="w-full bg-white dark:bg-[#1a1a1a] border border-[#E8E8E8] dark:border-[#2a2a2a] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
       <div className="flex items-center justify-between mb-5">
-        <div className="text-[13.5px] font-semibold text-[#0F0F0F] tracking-[-0.01em]">Financial Health Score</div>
-        <div className="w-10 h-10 rounded-full bg-[#F5F1E8] border-2 border-[#C9A84C] flex items-center justify-center">
-          <span className="text-[14px] font-bold text-[#8B7340]">78</span>
+        <div className="text-[13.5px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.01em]">Financial Health Score</div>
+        <div className="w-10 h-10 rounded-full bg-[#F5F1E8] dark:bg-[#2a2518] border-2 border-[#C9A84C] flex items-center justify-center">
+          <span className="text-[14px] font-bold text-[#8B7340] dark:text-[#C9A84C]">78</span>
         </div>
       </div>
       <div className="space-y-4">
         {metrics.map((m) => (
           <div key={m.label}>
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[12.5px] text-[#555]">{m.label}</span>
-              <span className="text-[12px] font-semibold text-[#0F0F0F]">{m.value}</span>
+              <span className="text-[12.5px] text-[#555] dark:text-[#aaa]">{m.label}</span>
+              <span className="text-[12px] font-semibold text-[#0F0F0F] dark:text-white">{m.value}</span>
             </div>
-            <div className="h-1.5 bg-[#F0F0F0] rounded-full overflow-hidden">
+            <div className="h-1.5 bg-[#F0F0F0] dark:bg-[#2a2a2a] rounded-full overflow-hidden">
               <div className="h-full rounded-full transition-all duration-700" style={{ width: `${m.value}%`, background: m.color }} />
             </div>
           </div>
@@ -191,10 +190,10 @@ function FeatureHeader() {
   const ref = useScrollReveal();
   return (
     <div ref={ref} className="text-center mb-20">
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F5F5F3] border border-[#E8E8E8] mb-5">
-        <span className="text-[12px] text-[#666] font-medium tracking-wide">Core Features</span>
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F5F5F3] dark:bg-[#1a1a1a] border border-[#E8E8E8] dark:border-[#2a2a2a] mb-5">
+        <span className="text-[12px] text-[#666] dark:text-[#aaa] font-medium tracking-wide">Core Features</span>
       </div>
-      <h2 className="text-[38px] font-semibold tracking-[-0.03em] text-[#0F0F0F] max-w-xl mx-auto leading-tight" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>
+      <h2 className="text-[38px] font-semibold tracking-[-0.03em] text-[#0F0F0F] dark:text-white max-w-xl mx-auto leading-tight" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>
         Everything you need to take control of your money
       </h2>
     </div>
@@ -211,21 +210,21 @@ function FeatureRow({ feature, reverse }) {
       {/* Text */}
       <div className="flex-1 max-w-md">
         <div className="text-[11px] font-semibold text-[#C9A84C] tracking-[0.12em] uppercase mb-4">{feature.number}</div>
-        <h3 className="text-[28px] font-semibold text-[#0F0F0F] tracking-[-0.025em] mb-4 leading-tight" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>
+        <h3 className="text-[28px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.025em] mb-4 leading-tight" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>
           {feature.title}
         </h3>
-        <p className="text-[15.5px] leading-relaxed text-[#555] mb-6 tracking-[-0.01em]">{feature.desc}</p>
+        <p className="text-[15.5px] leading-relaxed text-[#555] dark:text-[#aaa] mb-6 tracking-[-0.01em]">{feature.desc}</p>
         <div className="flex flex-wrap gap-2">
           {feature.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[12px] px-3 py-1.5 rounded-full bg-[#F5F5F3] border border-[#E8E8E8] text-[#666] font-medium"
+              className="text-[12px] px-3 py-1.5 rounded-full bg-[#F5F5F3] dark:bg-[#1a1a1a] border border-[#E8E8E8] dark:border-[#2a2a2a] text-[#666] dark:text-[#aaa] font-medium"
             >
               {tag}
             </span>
           ))}
         </div>
-        <a href="#" className="mt-8 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-[#0F0F0F] hover:text-[#C9A84C] transition-colors duration-200 group tracking-[-0.01em]">
+        <a href="#" className="mt-8 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-[#0F0F0F] dark:text-white hover:text-[#C9A84C] dark:hover:text-[#C9A84C] transition-colors duration-200 group tracking-[-0.01em]">
           Learn more
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" className="group-hover:translate-x-0.5 transition-transform duration-200">
             <path d="M2.5 6.5H10.5M10.5 6.5L7 3M10.5 6.5L7 10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>

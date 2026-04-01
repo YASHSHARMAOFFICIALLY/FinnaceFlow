@@ -1,34 +1,12 @@
 "use client"
 import { useEffect, useRef } from "react";
 
-const QUICK_STATS = [
-  {
-    label: "Portfolio Value",
-    value: "₹2,41,850",
-    delta: "+₹3,240",
-    deltaDir: "up",
-  },
-  {
-    label: "Active SIPs",
-    value: "4",
-    delta: "₹8,000 / mo",
-    deltaDir: "neutral",
-  },
-  {
-    label: "Goals On Track",
-    value: "3 / 4",
-    delta: "75% progress",
-    deltaDir: "up",
-  },
-  {
-    label: "Quiz Streak",
-    value: "12 days",
-    delta: "🔥 Keep going",
-    deltaDir: "neutral",
-  },
-];
-
-export default function DashboardHero({ userName = "Yash" }) {
+export default function DashboardHero({
+  userName = "Investor",
+  initial = "I",
+  quickStats = [],
+  selectedPeriod = "This month",
+}) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -62,7 +40,7 @@ export default function DashboardHero({ userName = "Yash" }) {
         <div>
           <div className="flex items-center gap-2.5 mb-1.5">
             <div className="w-8 h-8 rounded-full bg-[#0F0F0F] flex items-center justify-center text-[13px] font-bold text-[#C9A84C]">
-              {userName[0]}
+              {initial}
             </div>
             <span className="text-[13px] text-[#888] tracking-[-0.01em]">{dateStr}</span>
           </div>
@@ -84,7 +62,7 @@ export default function DashboardHero({ userName = "Yash" }) {
               <path d="M5 1.5V2.5M9 1.5V2.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
               <path d="M1.5 5.5H12.5" stroke="currentColor" strokeWidth="1.2" />
             </svg>
-            Jan 2025
+            {selectedPeriod}
           </button>
           <button className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#0F0F0F] text-white text-[13px] font-medium hover:bg-[#2a2a2a] transition-all duration-150">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -97,7 +75,7 @@ export default function DashboardHero({ userName = "Yash" }) {
 
       {/* Quick stats row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {QUICK_STATS.map((stat, i) => (
+        {quickStats.map((stat, i) => (
           <div
             key={stat.label}
             className="bg-white border border-[#E8E8E8] rounded-2xl px-5 py-4 hover:border-[#D0D0D0] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-200"

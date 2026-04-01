@@ -77,11 +77,11 @@ function TestimonialCard({ t, delay }) {
   return (
     <div
       ref={ref}
-      className="p-7 rounded-2xl border border-[#E8E8E8] bg-white hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-200"
+      className="p-7 rounded-2xl border border-[#E8E8E8] dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all duration-200"
     >
       <StarRating count={t.stars} />
-      <blockquote className="text-[15px] leading-relaxed text-[#333] tracking-[-0.01em] mb-6">
-        "{t.quote}"
+      <blockquote className="text-[15px] leading-relaxed text-[#333] dark:text-[#ccc] tracking-[-0.01em] mb-6">
+        &ldquo;{t.quote}&rdquo;
       </blockquote>
       <div className="flex items-center gap-3">
         <div
@@ -91,8 +91,8 @@ function TestimonialCard({ t, delay }) {
           {t.avatar}
         </div>
         <div>
-          <div className="text-[13.5px] font-semibold text-[#0F0F0F] tracking-[-0.01em]">{t.name}</div>
-          <div className="text-[12px] text-[#888]">{t.role}</div>
+          <div className="text-[13.5px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.01em]">{t.name}</div>
+          <div className="text-[12px] text-[#888] dark:text-[#777]">{t.role}</div>
         </div>
       </div>
     </div>
@@ -126,11 +126,11 @@ export default function Testimonials() {
     <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F5F5F3] border border-[#E8E8E8] mb-5">
-            <span className="text-[12px] text-[#666] font-medium tracking-wide">Testimonials</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F5F5F3] dark:bg-[#1a1a1a] border border-[#E8E8E8] dark:border-[#2a2a2a] mb-5">
+            <span className="text-[12px] text-[#666] dark:text-[#aaa] font-medium tracking-wide">Testimonials</span>
           </div>
           <h2
-            className="text-[38px] font-semibold tracking-[-0.03em] text-[#0F0F0F] max-w-lg mx-auto leading-tight"
+            className="text-[38px] font-semibold tracking-[-0.03em] text-[#0F0F0F] dark:text-white max-w-lg mx-auto leading-tight"
             style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
           >
             Trusted by people building better finances
@@ -144,23 +144,23 @@ export default function Testimonials() {
         </div>
 
         {/* Social proof bar */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-[13px] text-[#888]">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-[13px] text-[#888] dark:text-[#777]">
           <div className="flex items-center gap-2">
             <div className="flex -space-x-2">
               {["#F5F1E8", "#F0F5FF", "#F0FBF4", "#F8F0FF"].map((bg, i) => (
-                <div key={i} className="w-7 h-7 rounded-full border-2 border-white" style={{ background: bg }} />
+                <div key={i} className="w-7 h-7 rounded-full border-2 border-white dark:border-[#0A0A0A]" style={{ background: bg }} />
               ))}
             </div>
             <span>10,000+ learners</span>
           </div>
-          <div className="w-1 h-1 rounded-full bg-[#DDD]" />
+          <div className="w-1 h-1 rounded-full bg-[#DDD] dark:bg-[#444]" />
           <div className="flex items-center gap-1.5">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M6.5 1L7.89 4.82L12 5.27L9 8.16L9.85 12.24L6.5 10.23L3.15 12.24L4 8.16L1 5.27L5.11 4.82L6.5 1Z" fill="#C9A84C"/>
             </svg>
             <span>4.9 / 5 average rating</span>
           </div>
-          <div className="w-1 h-1 rounded-full bg-[#DDD]" />
+          <div className="w-1 h-1 rounded-full bg-[#DDD] dark:bg-[#444]" />
           <span>Free forever plan available</span>
         </div>
       </div>

@@ -82,15 +82,15 @@ export default function Hero() {
         {/* Left: text */}
         <div className="flex-1 max-w-xl">
           <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F5F1E8] border border-[#E8DFC0] mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F5F1E8] dark:bg-[#2a2518] border border-[#E8DFC0] dark:border-[#4a3f28] mb-8"
             style={{ animation: "fadeUp 0.6s ease both" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-            <span className="text-[12px] text-[#8B7340] font-medium tracking-wide">Personal Finance, Simplified</span>
+            <span className="text-[12px] text-[#8B7340] dark:text-[#C9A84C] font-medium tracking-wide">Personal Finance, Simplified</span>
           </div>
 
           <h1
-            className="text-[52px] leading-[1.1] font-semibold tracking-[-0.035em] text-[#0F0F0F] mb-6"
+            className="text-[52px] leading-[1.1] font-semibold tracking-[-0.035em] text-[#0F0F0F] dark:text-white mb-6"
             style={{ animation: "fadeUp 0.6s ease 0.1s both", fontFamily: "'DM Serif Display', 'Georgia', serif" }}
           >
             Master Your Money.{" "}
@@ -99,7 +99,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="text-[16.5px] leading-[1.7] text-[#555] mb-10 tracking-[-0.01em]"
+            className="text-[16.5px] leading-[1.7] text-[#555] dark:text-[#aaa] mb-10 tracking-[-0.01em]"
             style={{ animation: "fadeUp 0.6s ease 0.2s both" }}
           >
             Learn personal finance, track SIP investments, and build lasting financial habits — with interactive quizzes and powerful tools built for everyday people.
@@ -111,16 +111,16 @@ export default function Hero() {
           >
             <a
               href="#"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F0F0F] text-white text-[14px] rounded-xl font-medium hover:bg-[#2a2a2a] transition-all duration-200 shadow-sm tracking-[-0.01em]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] text-[14px] rounded-xl font-medium hover:bg-[#2a2a2a] dark:hover:bg-[#e0e0e0] transition-all duration-200 shadow-sm tracking-[-0.01em]"
             >
               Start Learning Finance
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
             <a
               href="#"
-              className="inline-flex items-center gap-1.5 text-[14px] text-[#555] hover:text-[#0F0F0F] transition-colors duration-200 tracking-[-0.01em] group"
+              className="inline-flex items-center gap-1.5 text-[14px] text-[#555] dark:text-[#aaa] hover:text-[#0F0F0F] dark:hover:text-white transition-colors duration-200 tracking-[-0.01em] group"
             >
               Explore Tools
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" className="group-hover:translate-x-0.5 transition-transform duration-200">
@@ -130,7 +130,7 @@ export default function Hero() {
           </div>
 
           <div
-            className="mt-12 flex items-center gap-6 text-[13px] text-[#888]"
+            className="mt-12 flex items-center gap-6 text-[13px] text-[#888] dark:text-[#777]"
             style={{ animation: "fadeUp 0.6s ease 0.4s both" }}
           >
             {["10,000+ learners", "Free to start", "No credit card"].map((t, i) => (
@@ -149,23 +149,23 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-3">
             {/* Large card top-left */}
             <div
-              className="bento-card col-span-1 row-span-1 p-5 rounded-2xl bg-[#0F0F0F] text-white cursor-pointer hover:-translate-y-0.5 transition-all duration-200"
+              className="bento-card col-span-1 row-span-1 p-5 rounded-2xl bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] cursor-pointer hover:-translate-y-0.5 transition-all duration-200"
               style={{ minHeight: 140 }}
             >
               <div className="mb-3">{bentoCards[0].icon}</div>
               <div className="text-[15px] font-semibold tracking-[-0.02em] mb-1">{bentoCards[0].title}</div>
-              <div className="text-[12.5px] text-white/50">{bentoCards[0].desc}</div>
+              <div className="text-[12.5px] text-white/50 dark:text-[#0F0F0F]/50">{bentoCards[0].desc}</div>
               <div className="mt-4 text-[11px] font-medium text-[#C9A84C] tracking-wide uppercase">Today's quiz →</div>
             </div>
 
             {/* SIP Tracker */}
             <div
-              className="bento-card p-5 rounded-2xl bg-[#F8F8F6] border border-[#EBEBEB] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              className="bento-card p-5 rounded-2xl bg-[#F8F8F6] dark:bg-[#1a1a1a] border border-[#EBEBEB] dark:border-[#2a2a2a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
               style={{ minHeight: 140 }}
             >
               <div className="mb-3">{bentoCards[1].icon}</div>
-              <div className="text-[15px] font-semibold text-[#0F0F0F] tracking-[-0.02em] mb-1">{bentoCards[1].title}</div>
-              <div className="text-[12.5px] text-[#888]">{bentoCards[1].desc}</div>
+              <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[1].title}</div>
+              <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[1].desc}</div>
               {/* Mini sparkline */}
               <div className="mt-4 flex items-end gap-1 h-8">
                 {[3, 5, 4, 6, 5, 7, 8].map((h, i) => (
@@ -176,42 +176,42 @@ export default function Hero() {
 
             {/* Health Score - wider */}
             <div
-              className="bento-card col-span-2 p-5 rounded-2xl border border-[#EBEBEB] bg-white cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              className="bento-card col-span-2 p-5 rounded-2xl border border-[#EBEBEB] dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
             >
               <div className="flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <div>{bentoCards[2].icon}</div>
-                    <div className="text-[15px] font-semibold text-[#0F0F0F] tracking-[-0.02em]">{bentoCards[2].title}</div>
+                    <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em]">{bentoCards[2].title}</div>
                   </div>
-                  <div className="text-[12.5px] text-[#888]">{bentoCards[2].desc}</div>
+                  <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[2].desc}</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-[32px] font-bold text-[#0F0F0F] tracking-[-0.04em] leading-none">78</div>
+                  <div className="text-[32px] font-bold text-[#0F0F0F] dark:text-white tracking-[-0.04em] leading-none">78</div>
                   <div className="text-[11px] text-[#C9A84C] font-medium mt-1">Good</div>
                 </div>
               </div>
-              <div className="mt-4 h-1.5 bg-[#F0F0F0] rounded-full overflow-hidden">
+              <div className="mt-4 h-1.5 bg-[#F0F0F0] dark:bg-[#2a2a2a] rounded-full overflow-hidden">
                 <div className="h-full bg-[#C9A84C] rounded-full" style={{ width: "78%" }} />
               </div>
             </div>
 
             {/* Smart Blogs */}
             <div
-              className="bento-card p-5 rounded-2xl border border-[#EBEBEB] bg-white cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              className="bento-card p-5 rounded-2xl border border-[#EBEBEB] dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
             >
               <div className="mb-3">{bentoCards[3].icon}</div>
-              <div className="text-[15px] font-semibold text-[#0F0F0F] tracking-[-0.02em] mb-1">{bentoCards[3].title}</div>
-              <div className="text-[12.5px] text-[#888]">{bentoCards[3].desc}</div>
+              <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[3].title}</div>
+              <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[3].desc}</div>
             </div>
 
             {/* Portfolio */}
             <div
-              className="bento-card p-5 rounded-2xl bg-[#F5F1E8] border border-[#E8DFC0] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              className="bento-card p-5 rounded-2xl bg-[#F5F1E8] dark:bg-[#2a2518] border border-[#E8DFC0] dark:border-[#4a3f28] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
             >
               <div className="mb-3">{bentoCards[4].icon}</div>
-              <div className="text-[15px] font-semibold text-[#0F0F0F] tracking-[-0.02em] mb-1">{bentoCards[4].title}</div>
-              <div className="text-[12.5px] text-[#8B7340]">{bentoCards[4].desc}</div>
+              <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[4].title}</div>
+              <div className="text-[12.5px] text-[#8B7340] dark:text-[#C9A84C]">{bentoCards[4].desc}</div>
             </div>
           </div>
         </div>

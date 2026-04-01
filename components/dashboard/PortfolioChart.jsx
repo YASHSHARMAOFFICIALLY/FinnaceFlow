@@ -13,49 +13,6 @@ import {
 
 const RANGES = ["1M", "3M", "6M", "1Y", "All"];
 
-const DATA = {
-  "1M": [
-    { date: "Dec 1", value: 224000, invested: 212000 },
-    { date: "Dec 8", value: 228000, invested: 214000 },
-    { date: "Dec 15", value: 225000, invested: 216000 },
-    { date: "Dec 22", value: 232000, invested: 218000 },
-    { date: "Dec 29", value: 237000, invested: 220000 },
-    { date: "Jan 5", value: 234000, invested: 222000 },
-    { date: "Jan 12", value: 241850, invested: 224000 },
-  ],
-  "3M": [
-    { date: "Oct", value: 198000, invested: 196000 },
-    { date: "Nov", value: 210000, invested: 204000 },
-    { date: "Dec", value: 228000, invested: 212000 },
-    { date: "Jan", value: 241850, invested: 224000 },
-  ],
-  "6M": [
-    { date: "Aug", value: 172000, invested: 172000 },
-    { date: "Sep", value: 184000, invested: 180000 },
-    { date: "Oct", value: 198000, invested: 188000 },
-    { date: "Nov", value: 210000, invested: 196000 },
-    { date: "Dec", value: 228000, invested: 208000 },
-    { date: "Jan", value: 241850, invested: 224000 },
-  ],
-  "1Y": [
-    { date: "Feb", value: 110000, invested: 110000 },
-    { date: "Apr", value: 132000, invested: 128000 },
-    { date: "Jun", value: 148000, invested: 144000 },
-    { date: "Aug", value: 172000, invested: 164000 },
-    { date: "Oct", value: 198000, invested: 180000 },
-    { date: "Dec", value: 228000, invested: 200000 },
-    { date: "Jan", value: 241850, invested: 216000 },
-  ],
-  All: [
-    { date: "2022", value: 52000, invested: 52000 },
-    { date: "2023 Q1", value: 74000, invested: 72000 },
-    { date: "2023 Q3", value: 98000, invested: 94000 },
-    { date: "2024 Q1", value: 142000, invested: 130000 },
-    { date: "2024 Q3", value: 196000, invested: 172000 },
-    { date: "2025 Q1", value: 241850, invested: 216000 },
-  ],
-};
-
 function CustomTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   const val = payload[0]?.value;
@@ -83,13 +40,15 @@ function CustomTooltip({ active, payload, label }) {
   );
 }
 
-export default function PortfolioChart() {
+export default function PortfolioChart({ portfolio }) {
   const [range, setRange] = useState("1M");
-  const data = DATA[range];
-  const latest = data[data.length - 1].value;
-  const first = data[0].value;
-  const gain = latest - data[0].invested;
-  const gainPct = ((gain / data[0].invested) * 100).toFixed(1);
+  const data = portfolio.series[range] || [];
+  const fallback = data[data.length - 1] || {
+    value: portfolio.currentValue,
+    invested: portfolio.investedValue,
+  };
+  const gain = fallback.value - fallback.invested;
+  const gainPct = ((gain / fallback.invested) * 100).toFixed(1);
   const isPositive = gain >= 0;
 
   return (
@@ -105,7 +64,7 @@ export default function PortfolioChart() {
               className="text-[28px] font-bold text-[#0F0F0F] tracking-[-0.04em] leading-none"
               style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
             >
-              ₹2,41,850
+              ₹{portfolio.currentValue.toLocaleString("en-IN")}
             </span>
             <span
               className={`text-[13px] font-semibold px-2 py-0.5 rounded-full ${
@@ -118,7 +77,7 @@ export default function PortfolioChart() {
             </span>
           </div>
           <div className="text-[12.5px] text-[#888] mt-1">
-            {isPositive ? "+" : ""}₹{Math.abs(gain).toLocaleString("en-IN")} total returns
+            {isPositive ? "+" : ""}₹{Math.abs(portfolio.totalReturn).toLocaleString("en-IN")} total returns
           </div>
         </div>
 
