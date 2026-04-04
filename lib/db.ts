@@ -5,10 +5,14 @@ import { Pool } from "pg";
 const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient | undefined;
   pool?: Pool | undefined;
-  adapter: PrismaPg | undefined;
+  adapter?: PrismaPg | undefined;
 };
 
 const connectionString = process.env.DATABASE_URL_UNPOOLED ?? process.env.DATABASE_URL;
+
+if (!connectionString) {
+  throw new Error("DATABASE_URL or DATABASE_URL_UNPOOLED must be set");
+}
 
 if (!globalForPrisma.pool) {
   globalForPrisma.pool = new Pool({ 

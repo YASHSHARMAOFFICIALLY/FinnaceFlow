@@ -9,6 +9,7 @@ import QuickTools from "@/components/dashboard/Quiztools";
 import RecentActivity from "@/components/dashboard/QuizActivity";
 import { auth } from "@/lib/auth";
 import { getDashboardData } from "@/lib/dashboard-data";
+import type { DashboardData } from "@/lib/dashboard-data";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default async function DashboardPage() {
@@ -20,7 +21,7 @@ export default async function DashboardPage() {
     redirect("/signin?next=/dashboard");
   }
 
-  const dashboard: any = await getDashboardData(session.user);
+  const dashboard: DashboardData = await getDashboardData(session.user);
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] dark:bg-[#0A0A0A]">

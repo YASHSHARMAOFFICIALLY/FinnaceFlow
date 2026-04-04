@@ -83,7 +83,7 @@ function BookCard({ book, delay }) {
   return (
     <div
       ref={ref}
-      className="group bg-white border border-[#E8E8E8] rounded-2xl p-6 hover:border-[#D0D0D0] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-200 flex gap-5"
+      className="group bg-white border border-[#E8E8E8] rounded-2xl p-6 hover:border-[#D0D0D0] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-200 flex gap-5 dark:bg-[#141414]"
     >
       {/* Book cover */}
       <div className="flex-shrink-0">
@@ -98,7 +98,7 @@ function BookCard({ book, delay }) {
       {/* Content */}
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-2 mb-1.5">
-          <h3 className="text-[15px] font-semibold text-[#0F0F0F] tracking-[-0.02em] leading-snug">
+          <h3 className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] leading-snug">
             {book.title}
           </h3>
           <span
@@ -115,9 +115,9 @@ function BookCard({ book, delay }) {
 
         <div className="flex items-center gap-2 mb-2.5 text-[12px] text-[#888]">
           <span className="font-medium">{book.author}</span>
-          <span className="w-1 h-1 rounded-full bg-[#DDD]" />
+          <span className="w-1 h-1 rounded-full bg-[#DDD] dark:bg-[#444] " />
           <span>{book.year}</span>
-          <span className="w-1 h-1 rounded-full bg-[#DDD]" />
+          <span className="w-1 h-1 rounded-full bg-[#DDD] dark:bg-[#444]" />
           <span>{book.pages}</span>
         </div>
 
@@ -143,7 +143,7 @@ export default function BooksSection() {
   const headerRef = useScrollReveal();
 
   return (
-    <section className="py-20 px-6 bg-[#FAFAF8]">
+    <section className="py-20 px-6 bg-[#FAFAF8] dark:bg-[#0A0A0A]">
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="flex items-end justify-between mb-10 flex-wrap gap-5">
           <div>
@@ -151,7 +151,7 @@ export default function BooksSection() {
               <span className="text-[12px] text-[#666] font-medium tracking-wide">Recommended Reading</span>
             </div>
             <h2
-              className="text-[34px] font-semibold tracking-[-0.03em] text-[#0F0F0F] leading-tight"
+              className="text-[34px] font-semibold tracking-[-0.03em] text-[#0F0F0F] leading-tight dark:text-white"
               style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
             >
               Books every investor should read
@@ -159,7 +159,7 @@ export default function BooksSection() {
           </div>
           <a
             href="#"
-            className="text-[13.5px] font-medium text-[#555] hover:text-[#0F0F0F] transition-colors duration-200 flex items-center gap-1.5"
+            className="text-[13.5px] font-medium text-[#555] hover:text-[#0F0F0F] transition-colors duration-200 flex items-center gap-1.5 dark:text-white"
           >
             Full reading list
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -177,3 +177,4 @@ export default function BooksSection() {
     </section>
   );
 }
+

@@ -85,33 +85,63 @@ function buildSeedData(user: SessionUser) {
       const pointDate = shiftDate(now, -(35 - index * 7));
       const invested = totalInvested - 18000 + index * 3200;
       const value = invested + 5000 + (seed % 3000) + index * 1800 - (index === 2 ? 2800 : 0);
-      return { date: longDateLabel(pointDate), invested, value };
+      return { date: longDateLabel(pointDate), recordedAt: pointDate, invested, value };
     }),
     "3M": Array.from({ length: 4 }, (_, index) => {
       const pointDate = new Date(now.getFullYear(), now.getMonth() - (3 - index), 1);
       const invested = totalInvested - 36000 + index * 9000;
       const value = invested + 9000 + (seed % 4500) + index * 4200;
-      return { date: monthLabel(pointDate), invested, value };
+      return { date: monthLabel(pointDate), recordedAt: pointDate, invested, value };
     }),
     "6M": Array.from({ length: 6 }, (_, index) => {
       const pointDate = new Date(now.getFullYear(), now.getMonth() - (5 - index), 1);
       const invested = totalInvested - 54000 + index * 10500;
       const value = invested + 11000 + (seed % 5000) + index * 4500;
-      return { date: monthLabel(pointDate), invested, value };
+      return { date: monthLabel(pointDate), recordedAt: pointDate, invested, value };
     }),
     "1Y": Array.from({ length: 6 }, (_, index) => {
       const pointDate = new Date(now.getFullYear(), now.getMonth() - (10 - index * 2), 1);
       const invested = totalInvested - 90000 + index * 17000;
       const value = invested + 13000 + (seed % 6000) + index * 7000;
-      return { date: monthLabel(pointDate), invested, value };
+      return { date: monthLabel(pointDate), recordedAt: pointDate, invested, value };
     }),
     All: [
-      { date: `${now.getFullYear() - 2}`, invested: totalInvested * 0.28, value: totalInvested * 0.32 },
-      { date: `${now.getFullYear() - 1} H1`, invested: totalInvested * 0.45, value: totalInvested * 0.52 },
-      { date: `${now.getFullYear() - 1} H2`, invested: totalInvested * 0.62, value: totalInvested * 0.74 },
-      { date: `${now.getFullYear()} Q1`, invested: totalInvested * 0.82, value: totalInvested * 0.94 },
-      { date: `${now.getFullYear()} Q2`, invested: totalInvested * 0.92, value: totalInvested * 1.02 },
-      { date: `${now.getFullYear()} Now`, invested: totalInvested, value: basePortfolio },
+      {
+        date: `${now.getFullYear() - 2}`,
+        recordedAt: new Date(now.getFullYear() - 2, 0, 1),
+        invested: totalInvested * 0.28,
+        value: totalInvested * 0.32,
+      },
+      {
+        date: `${now.getFullYear() - 1} H1`,
+        recordedAt: new Date(now.getFullYear() - 1, 5, 1),
+        invested: totalInvested * 0.45,
+        value: totalInvested * 0.52,
+      },
+      {
+        date: `${now.getFullYear() - 1} H2`,
+        recordedAt: new Date(now.getFullYear() - 1, 11, 1),
+        invested: totalInvested * 0.62,
+        value: totalInvested * 0.74,
+      },
+      {
+        date: `${now.getFullYear()} Q1`,
+        recordedAt: new Date(now.getFullYear(), 2, 31),
+        invested: totalInvested * 0.82,
+        value: totalInvested * 0.94,
+      },
+      {
+        date: `${now.getFullYear()} Q2`,
+        recordedAt: new Date(now.getFullYear(), 5, 30),
+        invested: totalInvested * 0.92,
+        value: totalInvested * 1.02,
+      },
+      {
+        date: `${now.getFullYear()} Now`,
+        recordedAt: now,
+        invested: totalInvested,
+        value: basePortfolio,
+      },
     ].map((point) => ({
       ...point,
       invested: Math.round(point.invested),
@@ -360,7 +390,7 @@ async function ensureDashboardSeed(user: SessionUser) {
             userId: user.id!,
             rangeKey,
             label: point.date,
-            recordedAt: rangeKey === "1M" ? shiftDate(seedData.now, -7) : seedData.now,
+            recordedAt: point.recordedAt,
             value: point.value,
             invested: point.invested,
           }))
@@ -432,7 +462,7 @@ export async function getDashboardData(user: SessionUser) {
       await Promise.all([
         db.portfolioSnapshot.findMany({
           where: { userId: user.id },
-          orderBy: [{ rangeKey: "asc" }, { createdAt: "asc" }],
+          orderBy: [{ rangeKey: "asc" }, { recordedAt: "asc" }],
         }),
         db.dashboardGoal.findMany({
           where: { userId: user.id },
@@ -467,7 +497,12 @@ export async function getDashboardData(user: SessionUser) {
       seeded,
       dataSource: "database",
     });
-  } catch {
+  } catch (error) {
+    console.error("Failed to load dashboard data", {
+      userId: user.id,
+      error,
+    });
+
     return mapDashboardData({
       ...fallbackSeed,
       user,
@@ -807,3 +842,5 @@ function mapDashboardData(input: {
     ],
   };
 }
+
+export type DashboardData = Awaited<ReturnType<typeof getDashboardData>>;

@@ -141,12 +141,12 @@ export default function StockMarketTool() {
 
           {/* Right: description */}
           <div className="flex-1 max-w-md pt-2">
-            <p className="text-[16px] leading-relaxed text-[#555] tracking-[-0.01em] mb-6">
+            <p className="text-[16px] leading-relaxed text-[#555] dark:text-white tracking-[-0.01em] mb-6">
               Search any NSE-listed stock to view its current price, day range, volume, and market cap in a clean, distraction-free interface.
             </p>
-            <div className="space-y-3">
+            <div className="space-y-3 dark:text-white">
               {["Real-time price & change", "Day high / low range", "Volume and market cap", "52-week performance"].map(f => (
-                <div key={f} className="flex items-center gap-2.5 text-[14px] text-[#444]">
+                <div key={f} className="flex items-center gap-2.5 text-[14px] text-[#444] dark:text-white">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F5F1E8"/><path d="M5 8L7 10L11 6" stroke="#C9A84C" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   {f}
                 </div>
@@ -154,7 +154,7 @@ export default function StockMarketTool() {
             </div>
 
             <div className="mt-8 p-5 rounded-2xl bg-[#FAFAF8] border border-[#EBEBEB]">
-              <div className="text-[12px] text-[#888] mb-3 font-medium uppercase tracking-wider">Popular Stocks</div>
+              <div className="text-[12px] text-[#888] mb-3 font-medium uppercase tracking-wider ">Popular Stocks</div>
               <div className="flex flex-wrap gap-2">
                 {SUGGESTIONS.map(sym => (
                   <button

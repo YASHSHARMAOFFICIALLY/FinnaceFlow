@@ -2,8 +2,7 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { db } from "./db";
 
-// Remove runtime exports — they don't belong here
-// export const runtime = "nodejs";  ← DELETE THIS
+const isProduction = process.env.NODE_ENV === "production";
 
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL!,
@@ -23,10 +22,9 @@ export const auth = betterAuth({
   },
 
   advanced: {
-    useSecureCookies: false,
-    // Explicitly set cookie attributes for production
+    useSecureCookies: isProduction,
     defaultCookieAttributes: {
-      secure: true,
+      secure: isProduction,
       httpOnly: true,
       sameSite: "lax",
       path: "/",
