@@ -33,13 +33,13 @@ export default async function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] dark:bg-[#0A0A0A]">
+    <div className="min-h-screen bg-[#FAFAF8] dark:bg-[radial-gradient(circle_at_top,_#18222b_0%,_#0b1014_42%,_#070b0e_100%)]">
       {/* Sidebar */}
-      <aside className="fixed top-0 left-0 h-full w-60 bg-white dark:bg-[#111] border-r border-[#EBEBEB] dark:border-[#2a2a2a] z-40 flex flex-col hidden lg:flex">
+      <aside className="fixed top-0 left-0 h-full w-60 bg-white/96 dark:bg-[#0d151b]/92 border-r border-[#EBEBEB] dark:border-[#24343e] backdrop-blur-xl z-40 flex flex-col hidden lg:flex">
         {/* Logo */}
-        <div className="h-16 flex items-center px-5 border-b border-[#EBEBEB] dark:border-[#2a2a2a]">
+        <div className="h-16 flex items-center px-5 border-b border-[#EBEBEB] dark:border-[#22313a]">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[#0F0F0F] dark:bg-white flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-[#0F0F0F] dark:bg-[#f3efe3] flex items-center justify-center shadow-[0_10px_24px_rgba(0,0,0,0.18)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M2 10L7 4L12 10" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 <circle cx="7" cy="11" r="1.2" fill="#C9A84C" />
@@ -53,7 +53,7 @@ export default async function DashboardPage() {
 
         {/* Nav items */}
         <nav className="flex-1 px-3 py-4 overflow-y-auto">
-          <div className="text-[10.5px] font-bold text-[#BBB] dark:text-[#666] uppercase tracking-[0.1em] px-3 mb-2">
+          <div className="text-[10.5px] font-bold text-[#BBB] dark:text-[#6c8593] uppercase tracking-[0.1em] px-3 mb-2">
             Main
           </div>
           {mainNavItems.map((item) => (
@@ -62,8 +62,8 @@ export default async function DashboardPage() {
               href={item.href}
               className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13.5px] font-medium mb-0.5 transition-all duration-150 ${
                 item.active
-                  ? "bg-[#0F0F0F] text-white"
-                  : "text-[#555] dark:text-[#AAA] hover:bg-[#F5F5F3] dark:hover:bg-[#1A1A1A] hover:text-[#0F0F0F] dark:hover:text-white"
+                  ? "bg-[#0F0F0F] text-white dark:bg-[#f3efe3] dark:text-[#091116] shadow-[0_12px_28px_rgba(0,0,0,0.12)]"
+                  : "text-[#555] dark:text-[#a8b7c1] hover:bg-[#F5F5F3] dark:hover:bg-[#162129] hover:text-[#0F0F0F] dark:hover:text-[#f4f7f8]"
               }`}
             >
               <span>{item.icon}</span>
@@ -71,7 +71,7 @@ export default async function DashboardPage() {
             </Link>
           ))}
 
-          <div className="text-[10.5px] font-bold text-[#BBB] dark:text-[#666] uppercase tracking-[0.1em] px-3 mb-2 mt-5">
+          <div className="text-[10.5px] font-bold text-[#BBB] dark:text-[#6c8593] uppercase tracking-[0.1em] px-3 mb-2 mt-5">
             Account
           </div>
           {[
@@ -80,7 +80,7 @@ export default async function DashboardPage() {
           ].map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13.5px] font-medium text-[#555] dark:text-[#AAA] hover:bg-[#F5F5F3] dark:hover:bg-[#1A1A1A] hover:text-[#0F0F0F] dark:hover:text-white mb-0.5 transition-all duration-150"
+              className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13.5px] font-medium text-[#555] dark:text-[#a8b7c1] hover:bg-[#F5F5F3] dark:hover:bg-[#162129] hover:text-[#0F0F0F] dark:hover:text-[#f4f7f8] mb-0.5 transition-all duration-150"
             >
               <span>{item.icon}</span>
               {item.label}
@@ -89,16 +89,16 @@ export default async function DashboardPage() {
         </nav>
 
         {/* User profile */}
-        <div className="px-3 py-4 border-t border-[#EBEBEB] dark:border-[#2a2a2a]">
-          <div className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F5F5F3] dark:hover:bg-[#1A1A1A] cursor-pointer transition-colors">
-            <div className="w-8 h-8 rounded-full bg-[#0F0F0F] flex items-center justify-center text-[13px] font-bold text-[#C9A84C] flex-shrink-0">
+        <div className="px-3 py-4 border-t border-[#EBEBEB] dark:border-[#22313a]">
+          <div className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F5F5F3] dark:hover:bg-[#162129] cursor-pointer transition-colors">
+            <div className="w-8 h-8 rounded-full bg-[#0F0F0F] dark:bg-[#142028] flex items-center justify-center text-[13px] font-bold text-[#C9A84C] flex-shrink-0 border border-transparent dark:border-[#28414f]">
               {dashboard.user.initial}
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-[13px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.01em] truncate">
                 {dashboard.user.fullName}
               </div>
-              <div className="text-[11.5px] text-[#888] dark:text-[#777] truncate">{dashboard.user.plan}</div>
+              <div className="text-[11.5px] text-[#888] dark:text-[#7e97a6] truncate">{dashboard.user.plan}</div>
             </div>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M5 4L8 7L5 10" stroke="#BBB" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -108,9 +108,9 @@ export default async function DashboardPage() {
       </aside>
 
       {/* Mobile top nav */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-40 h-14 bg-white dark:bg-[#111] border-b border-[#EBEBEB] dark:border-[#2a2a2a] flex items-center justify-between px-5">
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-40 h-14 bg-white/96 dark:bg-[#0d151b]/92 border-b border-[#EBEBEB] dark:border-[#24343e] backdrop-blur-xl flex items-center justify-between px-5">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-[#0F0F0F] dark:bg-white flex items-center justify-center">
+          <div className="w-7 h-7 rounded-lg bg-[#0F0F0F] dark:bg-[#f3efe3] flex items-center justify-center shadow-[0_10px_24px_rgba(0,0,0,0.18)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 10L7 4L12 10" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               <circle cx="7" cy="11" r="1.2" fill="#C9A84C" />
@@ -120,7 +120,7 @@ export default async function DashboardPage() {
         </div>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <div className="w-8 h-8 rounded-full bg-[#0F0F0F] dark:bg-white flex items-center justify-center text-[13px] font-bold text-[#C9A84C]">
+          <div className="w-8 h-8 rounded-full bg-[#0F0F0F] dark:bg-[#142028] flex items-center justify-center text-[13px] font-bold text-[#C9A84C] border border-transparent dark:border-[#28414f]">
             {dashboard.user.initial}
           </div>
         </div>
