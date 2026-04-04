@@ -148,7 +148,7 @@ export default async function DashboardPage() {
           />
 
           {/* Row 1: Health Card + Portfolio Chart */}
-          <div id="portfolio" className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-5 mt-6 scroll-mt-20">
+          <div id="portfolio" className="grid grid-cols-1  lg:grid-cols-[500px_1fr] gap-10 mt-6 scroll-mt-20">
             <FinancialHealthCard health={dashboard.financialHealth} />
             <PortfolioChart portfolio={dashboard.portfolio} />
           </div>

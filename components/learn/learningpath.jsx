@@ -111,25 +111,25 @@ function StepCard({ step, index, total, delay }) {
   const isLast = index === total - 1;
 
   return (
-    <div ref={ref} className="flex gap-5">
+    <div ref={ref} className="flex gap-5 " >
       {/* Left: step indicator + connector line */}
       <div className="flex flex-col items-center">
-        <div className="w-10 h-10 rounded-xl bg-[#0F0F0F] flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+        <div className="w-10 h-10 rounded-xl bg-[#0F0F0F]  dark:bg-white flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
           {step.icon}
         </div>
         {!isLast && (
-          <div className="w-px flex-1 mt-2 mb-0" style={{ background: "linear-gradient(to bottom, #E0E0E0, transparent)", minHeight: 32 }} />
+          <div className="w-px flex-1 mt-2 mb-0 dark:bg-white" style={{ background: "linear-gradient(to bottom, #E0E0E0, transparent)", minHeight: 32 }} />
         )}
       </div>
 
       {/* Right: content */}
       <div className={`flex-1 ${!isLast ? "pb-8" : "pb-0"}`}>
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-[11px] font-bold text-[#C9A84C] tracking-[0.1em] uppercase">
+        <div className="flex items-center gap-3 mb-2 ">
+          <span className="text-[11px] font-bold text-[#C9A84C] tracking-[0.1em] uppercase dark:bg-white">
             Step {step.step}
           </span>
           <span
-            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
+            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full dark:bg-white"
             style={{
               background: step.tagStyle.bg,
               color: step.tagStyle.text,
@@ -138,13 +138,13 @@ function StepCard({ step, index, total, delay }) {
           >
             {step.tag}
           </span>
-          <span className="text-[11.5px] text-[#AAA] ml-auto">{step.duration}</span>
+          <span className="text-[11.5px] text-[#AAA] ml-auto dark:bg-white">{step.duration}</span>
         </div>
 
-        <h3 className="text-[16px] font-semibold text-[#0F0F0F] tracking-[-0.02em] mb-2">
+        <h3 className="text-[16px] font-semibold text-[#0F0F0F] tracking-[-0.02em] mb-2 dark:bg-white">
           {step.title}
         </h3>
-        <p className="text-[13.5px] text-[#666] leading-relaxed tracking-[-0.01em]">
+        <p className="text-[13.5px] text-[#666] leading-relaxed tracking-[-0.01em] dark:bg-white">
           {step.description}
         </p>
 
@@ -166,7 +166,7 @@ export default function LearningPath() {
   const headerRef = useScrollReveal();
 
   return (
-    <section id="path" className="py-20 px-6 bg-[#FAFAF8]">
+    <section id="path" className="py-20 px-6 bg-[#FAFAF8] dark:bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           {/* Left: header */}
@@ -175,12 +175,12 @@ export default function LearningPath() {
               <span className="text-[12px] text-[#666] font-medium tracking-wide">Learning Roadmap</span>
             </div>
             <h2
-              className="text-[34px] font-semibold tracking-[-0.03em] text-[#0F0F0F] leading-tight mb-5"
+              className="text-[34px] font-semibold tracking-[-0.03em] text-[#0F0F0F] leading-tight mb-5 dark:bg-white"
               style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
             >
               Your path to financial mastery
             </h2>
-            <p className="text-[15px] text-[#666] leading-relaxed tracking-[-0.01em] mb-6">
+            <p className="text-[15px] text-[#666] leading-relaxed tracking-[-0.01em] mb-6 dark:bg-white">
               A structured roadmap designed for beginners. Follow these five steps in order and you&apos;ll go from confused to confident in your money decisions.
             </p>
 

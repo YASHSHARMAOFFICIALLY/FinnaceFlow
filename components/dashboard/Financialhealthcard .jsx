@@ -131,21 +131,21 @@ function IndicatorBar({ item, delay }) {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-1.5 min-w-0">
-        <div className="flex items-center gap-2">
+      <div className="mb-1.5 flex min-w-0 flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <div className="flex min-w-0 items-center gap-2">
           <div
-            className="w-6 h-6 rounded-lg flex items-center justify-center"
+            className="h-6 w-6 flex-shrink-0 rounded-lg flex items-center justify-center"
             style={{ background: `${item.color}18` }}
           >
             {ICONS[item.key]}
           </div>
-          <span className="text-[12.5px] text-[#444] dark:text-[#d5dee4] font-medium tracking-[-0.01em] truncate">
+          <span className="min-w-0 break-words text-[12.5px] text-[#444] dark:text-[#d5dee4] font-medium tracking-[-0.01em]">
             {item.label}
           </span>
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex max-w-full flex-shrink-0 items-center gap-2 self-start sm:self-auto">
           <span
-            className="text-[11px] font-medium px-2 py-0.5 rounded-full"
+            className="max-w-full rounded-full px-2 py-0.5 text-[11px] font-medium whitespace-nowrap"
             style={{
               background: `${item.color}18`,
               color: item.color,
@@ -153,7 +153,7 @@ function IndicatorBar({ item, delay }) {
           >
             {item.status}
           </span>
-          <span className="text-[12.5px] font-bold text-[#0F0F0F] dark:text-white">
+          <span className="whitespace-nowrap text-[12.5px] font-bold text-[#0F0F0F] dark:text-white">
             {item.value}
           </span>
         </div>
@@ -174,27 +174,27 @@ function IndicatorBar({ item, delay }) {
 
 export default function FinancialHealthCard({ health }) {
   return (
-    <div className="bg-white dark:bg-[linear-gradient(180deg,_rgba(18,28,34,0.96)_0%,_rgba(10,16,21,0.99)_100%)] border border-[#E8E8E8] dark:border-[#243842] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_14px_34px_rgba(0,0,0,0.34)] h-full text-[#0F0F0F] dark:text-white">
-      <div className="flex items-center justify-between mb-5">
-        <div>
+    <div className="overflow-hidden bg-white dark:bg-[linear-gradient(180deg,_rgba(18,28,34,0.96)_0%,_rgba(10,16,21,0.99)_100%)] border border-[#E8E8E8] dark:border-[#243842] rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_14px_34px_rgba(0,0,0,0.34)] h-full text-[#0F0F0F] dark:text-white">
+      <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0 flex-1">
           <div className="text-[11.5px] font-semibold text-[#888] dark:text-[#89a0ad] uppercase tracking-[0.08em] mb-0.5">
             Financial Health
           </div>
-          <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em]">
+          <div className="break-words text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em]">
             Your overall score
           </div>
         </div>
-        <button className="text-[12px] text-[#888] dark:text-[#a7bac6] hover:text-[#0F0F0F] dark:hover:text-white transition-colors px-3 py-1.5 rounded-lg border border-[#F0F0F0] dark:border-[#243842] hover:border-[#D0D0D0] dark:hover:border-[#39515d]">
+        <button className="max-w-full flex-shrink-0 text-[12px] text-[#888] dark:text-[#a7bac6] hover:text-[#0F0F0F] dark:hover:text-white transition-colors px-3 py-1.5 rounded-lg border border-[#F0F0F0] dark:border-[#243842] hover:border-[#D0D0D0] dark:hover:border-[#39515d]">
           Details →
         </button>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center gap-6">
+      <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center">
         <div className="flex-shrink-0">
           <ScoreRing score={health.score} />
         </div>
 
-        <div className="flex-1 w-full space-y-4">
+        <div className="min-w-0 flex-1 w-full space-y-4">
           {health.indicators.map((item, index) => (
             <IndicatorBar key={item.label} item={item} delay={index * 100} />
           ))}
@@ -202,13 +202,13 @@ export default function FinancialHealthCard({ health }) {
       </div>
 
       <div className="mt-5 pt-5 border-t border-[#F5F5F5] dark:border-[#22343d]">
-        <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F5F1E8] dark:bg-[#241E12] border border-[#E8DFC0] dark:border-[#4A3F28]">
+        <div className="flex items-start gap-3 rounded-xl border border-[#E8DFC0] bg-[#F5F1E8] p-3.5 dark:border-[#4A3F28] dark:bg-[#241E12]">
           <span className="text-lg">💡</span>
-          <div>
+          <div className="min-w-0">
             <div className="text-[12px] font-semibold text-[#8B7340] dark:text-[#dfbf75] mb-0.5">
               {health.tip.title}
             </div>
-            <div className="text-[12px] text-[#8B7340] dark:text-[#d8be87] leading-relaxed">
+            <div className="break-words text-[12px] leading-relaxed text-[#8B7340] dark:text-[#d8be87]">
               {health.tip.description}
             </div>
           </div>

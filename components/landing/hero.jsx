@@ -110,7 +110,7 @@ export default function Hero() {
             style={{ animation: "fadeUp 0.6s ease 0.3s both" }}
           >
             <a
-              href="#"
+              href="/coming-soon"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] text-[14px] rounded-xl font-medium hover:bg-[#2a2a2a] dark:hover:bg-[#e0e0e0] transition-all duration-200 shadow-sm tracking-[-0.01em]"
             >
              Chat with Arthsathi 

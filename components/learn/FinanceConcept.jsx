@@ -131,7 +131,7 @@ export default function FinanceConcepts() {
   const headerRef = useScrollReveal();
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-20 px-6 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F5F5F3] border border-[#E8E8E8] mb-5">
@@ -143,7 +143,7 @@ export default function FinanceConcepts() {
           >
             Key concepts every investor must know
           </h2>
-          <p className="text-[15px] text-[#666] mt-3 max-w-md mx-auto leading-relaxed tracking-[-0.01em]">
+          <p className="text-[15px] text-[#666] mt-3 max-w-md mx-auto leading-relaxed tracking-[-0.01em] dark:text-white">
             Clear, jargon-free explanations of the ideas that drive smart financial decisions.
           </p>
         </div>
