@@ -45,18 +45,23 @@ function Navbar() {
             { label: "Tools",     href: "/tools" },
             { label: "Learn",     href: "/learn" },
             { label: "Community", href: "/community" },
-            { label: "Dashboard", href: "/dashboard", active: true },
-          ].map(({ label, href, active }) => (
+            { label: "Dashboard", href: "/dashboard" },
+          ].map(({ label, href }) => (
             <Link
               key={label}
               href={href}
-              className={`text-[13.5px] tracking-[-0.01em] transition-colors ${
-                active ? "text-[#0F0F0F] font-medium" : "text-[#555] hover:text-[#0F0F0F]"
-              }`}
+              className="text-[13.5px] tracking-[-0.01em] text-[#555] hover:text-[#0F0F0F] transition-colors"
             >
               {label}
             </Link>
           ))}
+          <Link
+            href="/gemini-chat"
+            className="flex items-center gap-1.5 text-[13.5px] tracking-[-0.01em] text-[#4338CA] font-medium hover:text-[#3730A3] transition-colors"
+          >
+            <span className="text-[11px] px-1.5 py-0.5 rounded-full bg-[#EEF2FF] border border-[#C7D2FE] text-[#4338CA] font-semibold">Gemini</span>
+            Try Gemini AI
+          </Link>
         </div>
       </div>
     </nav>
