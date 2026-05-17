@@ -81,7 +81,7 @@ export default function Footer() {
                   <li key={link}>
                     <a
                       // href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      href={linkMap[link]}
+                      href={linkMap[link] || "#"}
                       className="text-[13px] text-[#888] dark:text-[#777] hover:text-[#0F0F0F] dark:hover:text-white transition-colors duration-200"
                     >
                       {link}
