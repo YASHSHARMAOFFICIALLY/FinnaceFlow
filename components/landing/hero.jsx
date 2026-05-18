@@ -4,11 +4,11 @@ import { useEffect, useRef } from "react";
 const bentoCards = [
   {
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <rect x="2" y="2" width="6" height="6" rx="1.5" fill="#C9A84C" opacity="0.9"/>
-        <rect x="10" y="2" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.12"/>
-        <rect x="2" y="10" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.08"/>
-        <rect x="10" y="10" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.05"/>
+      <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <rect suppressHydrationWarning x="2" y="2" width="6" height="6" rx="1.5" fill="#C9A84C" opacity="0.9"/>
+        <rect suppressHydrationWarning x="10" y="2" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.12"/>
+        <rect suppressHydrationWarning x="2" y="10" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.08"/>
+        <rect suppressHydrationWarning x="10" y="10" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.05"/>
       </svg>
     ),
     title: "Finance Quiz",
@@ -17,9 +17,9 @@ const bentoCards = [
   },
   {
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M3 13L6.5 9L9.5 11L13.5 6L15 7.5" stroke="#0F0F0F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="15" cy="5" r="1.5" fill="#C9A84C"/>
+      <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path suppressHydrationWarning d="M3 13L6.5 9L9.5 11L13.5 6L15 7.5" stroke="#0F0F0F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle suppressHydrationWarning cx="15" cy="5" r="1.5" fill="#C9A84C"/>
       </svg>
     ),
     title: "SIP Tracker",
@@ -27,11 +27,11 @@ const bentoCards = [
   },
   {
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <circle cx="9" cy="9" r="6.5" stroke="#0F0F0F" strokeWidth="1.3" opacity="0.2"/>
-        <path d="M9 9L9 4.5" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M9 9L13 11" stroke="#0F0F0F" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="9" cy="9" r="1.5" fill="#0F0F0F"/>
+      <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle suppressHydrationWarning cx="9" cy="9" r="6.5" stroke="#0F0F0F" strokeWidth="1.3" opacity="0.2"/>
+        <path suppressHydrationWarning d="M9 9L9 4.5" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
+        <path suppressHydrationWarning d="M9 9L13 11" stroke="#0F0F0F" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle suppressHydrationWarning cx="9" cy="9" r="1.5" fill="#0F0F0F"/>
       </svg>
     ),
     title: "Financial Score",
@@ -39,8 +39,8 @@ const bentoCards = [
   },
   {
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M3 5H15M3 9H11M3 13H13" stroke="#0F0F0F" strokeWidth="1.4" strokeLinecap="round"/>
+      <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path suppressHydrationWarning d="M3 5H15M3 9H11M3 13H13" stroke="#0F0F0F" strokeWidth="1.4" strokeLinecap="round"/>
       </svg>
     ),
     title: "Smart Blogs",
@@ -48,10 +48,10 @@ const bentoCards = [
   },
   {
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <rect x="3" y="11" width="3" height="4" rx="0.8" fill="#C9A84C"/>
-        <rect x="7.5" y="8" width="3" height="7" rx="0.8" fill="#0F0F0F" opacity="0.3"/>
-        <rect x="12" y="5" width="3" height="10" rx="0.8" fill="#0F0F0F"/>
+      <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <rect suppressHydrationWarning x="3" y="11" width="3" height="4" rx="0.8" fill="#C9A84C"/>
+        <rect suppressHydrationWarning x="7.5" y="8" width="3" height="7" rx="0.8" fill="#0F0F0F" opacity="0.3"/>
+        <rect suppressHydrationWarning x="12" y="5" width="3" height="10" rx="0.8" fill="#0F0F0F"/>
       </svg>
     ),
     title: "Portfolio Insights",
@@ -114,8 +114,8 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] text-[14px] rounded-xl font-medium hover:bg-[#2a2a2a] dark:hover:bg-[#e0e0e0] transition-all duration-200 shadow-sm tracking-[-0.01em]"
             >
              Chat with Arthsathi 
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg suppressHydrationWarning width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path suppressHydrationWarning d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
             <a
@@ -123,8 +123,8 @@ export default function Hero() {
               className="inline-flex items-center gap-1.5 text-[14px] text-[#555] dark:text-[#aaa] hover:text-[#0F0F0F] dark:hover:text-white transition-colors duration-200 tracking-[-0.01em] group"
             >
               Explore Tools
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" className="group-hover:translate-x-0.5 transition-transform duration-200">
-                <path d="M2.5 6.5H10.5M10.5 6.5L7 3M10.5 6.5L7 10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg suppressHydrationWarning width="13" height="13" viewBox="0 0 13 13" fill="none" className="group-hover:translate-x-0.5 transition-transform duration-200">
+                <path suppressHydrationWarning d="M2.5 6.5H10.5M10.5 6.5L7 3M10.5 6.5L7 10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
           </div>
@@ -135,8 +135,8 @@ export default function Hero() {
           >
             {["10,000+ learners", "Free to start", "No credit card"].map((t, i) => (
               <span key={i} className="flex items-center gap-1.5">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6L5 9L10 3" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg suppressHydrationWarning width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path suppressHydrationWarning d="M2 6L5 9L10 3" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 {t}
               </span>
